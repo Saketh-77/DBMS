@@ -5,27 +5,28 @@ const ejs = require("ejs");
 const mySql = require('mysql');
 
 //Database connection
-const mySqlConnection = mySql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'sak.ryz.mysql',
-  database: 'dbms'
-});
-mySqlConnection.connect(err =>{
-  if(!err){
-    console.log("Database connection successful !");
-  }else{
-    console.log("Database connection failed , Error : \n"+JSON.stringify(err,undefined,2));
-  }
-});
+// const mySqlConnection = mySql.createConnection({
+//   host: 'localhost',
+//   user: 'root',
+//   password: 'sak.ryz.mysql',
+//   database: 'dbms'
+// });
+// mySqlConnection.connect(err =>{
+//   if(!err){
+//     console.log("Database connection successful !");
+//   }else{
+//     console.log("Database connection failed , Error : \n"+JSON.stringify(err,undefined,2));
+//   }
+// });
 //Item constructor
-function Item(name,price){
+function Item(name,price,quantity){
   this.name = name;
   this.price = price;
+  this.quantity = quantity;
 }
 //Item list declaration
 const items = [];
-let total = 0;
+var total = 0;
 
 const app = express();
 app.use(express.static('public'));
@@ -47,8 +48,12 @@ app.post("/menuPage",(req, res)=>{
 
 app.post("/additem",(req, res)=>{
   const item = req.body.item.split(',');
-  const newItem = new Item(item[0],parseInt(item[1]));
-  total += newItem.price;
+  const quantity = req.body.numberOfItems;
+  
+  console.log(quantity);
+  
+  const newItem = new Item(item[0],parseInt(item[1]),quantity);
+  total += (newItem.quantity * newItem.price);
   items.push(newItem);
   res.redirect('/menuPage');
 });
@@ -66,6 +71,10 @@ app.get("/signUp",(req, res)=>{
 });
 app.post("/signUp",(req, res)=>{
   console.log("Sign-up working");
+});
+
+app.post("/tableBooking",(req, res)=>{
+  res.render("table");
 });
 
 app.listen(3000,(req, res)=>{

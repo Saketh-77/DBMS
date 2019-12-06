@@ -15,12 +15,16 @@
        -moz-box-shadow: 0 10px 6px -6px #777;
             box-shadow: 0 10px 6px -6px #777;
     }
-</style>
+    .total{
+        font-family: 'Raleway', sans-serif;
+        color: #8eb040;
+    }
+</style>  
 <% if(items.length===0){ %>
     <div class="jumbotron">
         <h1>Your cart is empty.</h1>
         <p>Click the button below to order food.</p>
-        <form action="/" method="GET">
+        <form action="/menuPage" method="GET">
             <button type="submit" class="btn btn-custom btn-lg">Order Food Now</button>
         </form>
     </div>
@@ -30,10 +34,17 @@
             <div class="card-body">
                 <h5 class="card-title"><%= item.name %></h5>
                 <p class="card-text"><%= item.price %></p>
-                <a href="#" class="btn btn-primary">Button</a>
+                <a class="btn btn-custom btn-sm" style="color: white;">Button</a>
             </div>
         </div>
    <% }); %>
-   <h1>Total Amount to be paid : <%= total %></h1>
+   <h1 class="jumbotron total">Total Amount to be paid : <%= total %></h1>
 <% } %>
 <%- include("partials/footer.ejs"); -%>
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/SmoothScroll.js"></script>
+<script type="text/javascript" src="js/nivo-lightbox.js"></script>
+<script type="text/javascript" src="js/jquery.isotope.js"></script>
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
+<script type="text/javascript" src="js/main.js"></script>

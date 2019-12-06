@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Savoureux</title>
+<title>Cambre House</title>
 <meta name="description" content="">
 <meta name="author" content="">
 <%- include("partials/head-linkers.ejs"); -%>
@@ -16,7 +16,7 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand page-scroll" href="#page-top">Savoureux</a> </div>
+      <a class="navbar-brand page-scroll" href="#page-top">Cambre House</a> </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -24,7 +24,8 @@
         <li><a href="#about" class="page-scroll">About</a></li>
         <li><a href="#portfolio" class="page-scroll">Gallery</a></li>
         <li><a href="#login" class="page-scroll">Login</a></li>
-        <li><a href="#call-reservation" class="page-scroll">Contact</a></li>
+        <li><a href="#call-reservation" class="page-scroll">Book table</a></li>
+        <li><a href="#contact" class="page-scroll">Contact</a></li>
         <li>
           <form action="/menuPage" method="POST">
             <button type="submit" class="menu-btn">Menu</button>
@@ -45,7 +46,7 @@
       <div class="container">
         <div class="row">
           <div class="intro-text">
-            <h1>Savoureux</h1>
+            <h1>Cambre House</h1>
             <p>Restaurant</p>
             <a href="#about" class="btn btn-custom btn-lg page-scroll">Explore</a> </div>
         </div>
@@ -228,7 +229,10 @@
 <!-- Call Reservation Section -->
 <div id="call-reservation" class="text-center">
   <div class="container">
-    <h2>Want to make a reservation? Call <strong>1-887-654-3210</strong></h2>
+    <h2>Click here to book your <strong>Dine</strong> now!</h2>
+    <form action="/tableBooking" method="post">
+      <button type="submit" class="btn btn-custom btn-lg"><span><i class="fas fa-utensils"></i></span></button>
+    </form>
   </div>
 </div>
 <!-- Contact Section -->

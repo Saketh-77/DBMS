@@ -1,17 +1,32 @@
 
 <!-- <meta charset="utf-8"> -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Savoureux Menu</title>
+<title>Cambre House Menu</title>
 <meta name="description" content="">
 <meta name="author" content="">
-
+<style>
+    #showUser{
+        font-family: 'Raleway',sans-serif;
+        margin-top: 20px;
+        height: 3.89%;
+        width: 14%;
+        text-align: center;
+        border: none;
+        font-weight: bolder;
+        color: #000;
+    }
+    .add-btn,.delete-btn{
+        color: #8eb640;
+        cursor: pointer;
+    }
+</style>
 <%- include("partials/head-linkers.ejs"); -%>
 <nav id="menu" class="navbar navbar-default navbar-fixed-top">
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-            <a class="navbar-brand page-scroll" href="#page-top">Savoureux</a> </div>
+            <a class="navbar-brand page-scroll" href="#page-top">Cambre House</a> </div>
       
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -56,15 +71,19 @@
             <h2 class="menu-section-title">Breakfast & Starters</h2>
             <hr>
                 <% for(var x=0;x<6;x++){ %>
-                    <form action="/additem" method="post">
-                        <div class="menu-item">
-                                <div class="menu-item-name">Custom meal.</div>
-                                <div class="menu-item-price"> $100 </div>
-                                <div class="menu-item-description"> This is a very good item.</div>
-                                <input id="custom-meal" type="text" name="item" value="Custom,100" hidden>
-                                <button type="submit" class="btn btn-custom btn-lg">Add to cart</button>
-                            </div>
-                    </form>
+                    <div class="menu-item">
+                        <div class="menu-item-name">Custom meal.</div>
+                        <div class="menu-item-price"> $100 </div>
+                        <div class="menu-item-description"> This is a very good item.</div>
+                        <span class="delete-btn"><i class="far fa-minus-square"></i></span>
+                        <input id = "showUser" type="text" value=0 />
+                        <span class="add-btn"><i class="far fa-plus-square"></i></span>
+                        <form action="/additem" method="post">
+                            <input id="custom-meal" type="text" name="item" value="Custom,100" hidden>
+                            <input id = "quantity" name="numberOfItems" type="number" value=0 hidden/>
+                            <button type="submit" class="btn btn-custom btn-lg">Add to cart</button>
+                        </form>
+                    </div>
                 <% } %>
             </div>
         </div>
@@ -73,15 +92,19 @@
             <h2 class="menu-section-title">Main Course</h2>
             <hr>
             <% for(var x=0;x<5;x++){ %>
-                <form action="/additem" method="post">
-                <div class="menu-item">
-                    <div class="menu-item-name"> Delicious Dish 1</div>
-                    <div class="menu-item-price"> $45 </div>
-                    <div class="menu-item-description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, duis sed dapibus leo nec ornare diam. </div>
-                    <input id="custom-meal" type="text" name="item" value="Delicious Dish 1,45" hidden>
-                    <button type="submit" class="btn btn-custom btn-lg">Add to cart</button>
-                </div>
-                </form>
+                    <div class="menu-item">
+                            <div class="menu-item-name">Custom meal 2.</div>
+                            <div class="menu-item-price"> $200 </div>
+                            <div class="menu-item-description"> This is a very good item 2.</div>
+                            <span class="delete-btn"><i class="far fa-minus-square"></i></span>
+                            <input id = "showUser" type="text" value="0" />
+                            <span class="add-btn"><i class="far fa-plus-square"></i></span>
+                            <form action="/additem" method="post">
+                                <input id="custom-meal" type="text" name="item" value="Custom meal 2,200" hidden>
+                                <input id = "quantity" name="numberOfItems" type="number" value=0 hidden/>
+                                <button type="submit" class="btn btn-custom btn-lg">Add to cart</button>
+                            </form>
+                        </div>
             <% } %>
             </div>
         </div>
@@ -92,15 +115,19 @@
             <h2 class="menu-section-title">Dinner</h2>
             <hr>
             <% for(var x=0;x<5;x++){ %>
-                <form action="/additem" method="post">
-                <div class="menu-item">
-                    <div class="menu-item-name"> Delicious Dish 2</div>
-                    <div class="menu-item-price"> $350 </div>
-                    <div class="menu-item-description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, duis sed dapibus leo nec ornare diam. </div>
-                    <input id="custom-meal" type="text" name="item" value="Delicious Dish 2,350" hidden>
-                    <button type="submit" class="btn btn-custom btn-lg">Add to cart</button>
-                </div>
-                </form>
+                    <div class="menu-item">
+                            <div class="menu-item-name">Custom meal 3.</div>
+                            <div class="menu-item-price"> $300 </div>
+                            <div class="menu-item-description"> This is a very good item 3.</div>
+                            <span class="delete-btn"><i class="far fa-minus-square"></i></span>
+                            <input id = "showUser" type="text" value="0" />
+                            <span class="add-btn"><i class="far fa-plus-square"></i></span>
+                            <form action="/additem" method="post">
+                                <input id="custom-meal" type="text" name="item" value="Custom meal 3,300" hidden>
+                                <input id = "quantity" name="numberOfItems" type="number" value=0 hidden/>
+                                <button type="submit" class="btn btn-custom btn-lg">Add to cart</button>
+                            </form>
+                        </div>
             <% } %>
             </div>
         </div>
@@ -109,15 +136,19 @@
             <h2 class="menu-section-title">Coffee & Drinks</h2>
             <hr>
             <% for(var x=0;x<5;x++){ %>
-                <form action="/additem" method="post">
-                <div class="menu-item">
-                    <div class="menu-item-name"> Delicious Dish 3</div>
-                    <div class="menu-item-price"> $30 </div>
-                    <div class="menu-item-description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, duis sed dapibus leo nec ornare diam. </div>
-                    <input id="custom-meal" type="text" name="item" value="Delicious Dish 3,30" hidden>
-                    <button type="submit" class="btn btn-custom btn-lg">Add to cart</button>
-                </div>
-                </form>
+                    <div class="menu-item">
+                            <div class="menu-item-name">Custom meal 4.</div>
+                            <div class="menu-item-price"> $400 </div>
+                            <div class="menu-item-description"> This is a very good item 4.</div>
+                            <span class="delete-btn"><i class="far fa-minus-square"></i></span>
+                            <input id = "showUser" type="text" value="0" />
+                            <span class="add-btn"><i class="far fa-plus-square"></i></span>
+                            <form action="/additem" method="post">
+                                <input id="custom-meal" type="text" name="item" value="Custom meal 4,400" hidden>
+                                <input id = "quantity" name="numberOfItems" type="number" value=0 hidden/>
+                                <button type="submit" class="btn btn-custom btn-lg">Add to cart</button>
+                            </form>
+                        </div>
             <% } %>
             </div>
         </div>
@@ -130,11 +161,35 @@
     </div>
 </div>
 <%- include("partials/footer.ejs"); -%>
+
 <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 <script type="text/javascript" src="js/SmoothScroll.js"></script>
 <script type="text/javascript" src="js/nivo-lightbox.js"></script>
 <script type="text/javascript" src="js/jquery.isotope.js"></script>
 <script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
-<!-- <script type="text/javascript" src="js/contact_me.js"></script> -->
 <script type="text/javascript" src="js/main.js"></script>
+<script>
+    $(".add-btn").on("click",function(){
+        var $showUser = $(this).prev();
+        var $quantity = $(this).next().find("input#qunatity");
+        var value = parseInt($showUser.attr('value'));
+        value += 1;
+        $quantity.attr('value',String(value));
+        $showUser.attr('value',String(value));
+        console.log($quantity.attr('value'));
+    });
+    $(".delete-btn").on("click",function(){
+        var $showUser = $(this).next();
+        var $quantity = $(this).next().next().next().find('input#quantity');
+        var value = parseInt($showUser.attr('value'));
+        if(value === 0){
+            alert("This item isn't yet selected !");
+        }else{
+            value -= 1;
+            $quantity.attr('value',String(value));
+            $showUser.attr('value',String(value));
+            console.log($quantity.attr('value'));
+        }
+    });
+</script>

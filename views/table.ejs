@@ -1,0 +1,88 @@
+<%- include('partials/head-linkers.ejs'); -%>
+<style>
+    .table-icon{
+        color: #ddd;
+        height: 20px;
+        width: 20px;
+        margin: 9.5px 15px 0 15px;
+        padding: 20px;
+	    border: 2px solid transparent;
+        background: transparent;
+    };
+    .table-icon i {
+        color: green;
+    }
+</style>
+<div id="portfolio" style="padding-bottom: 0;">
+    <div class="section-title text-center center" style="margin-bottom: 0;">
+            <div class="overlay">
+                <h2>TABLE BOOKING</h2>
+                <hr>
+                <p>"No joy is greater than the joy of having great food."</p>
+            </div>
+    </div>
+</div>
+<div id="call-reservation" class="text-center" style="background: #eee;">
+    <div class="container" style="margin-bottom: 30px;">
+      <div class="row justify-content-md-left">
+        <div class="col col-lg-6 col-sm-7">
+                <% for(var i=0;i<5;i++) {%>
+                        <button class="table-icon" id=<%=i %>><i class="far fa-square fa-5x" style="color:#8EB640;"></i></button>
+                <%}%>
+        </div>
+        <div class="col col-lg-6 col-sm-5">
+                <% for(var i=0;i<3;i++) {%>
+                        <button class="table-icon"><i class="far fa-square fa-5x" style="color:#8EB640;"></i></button>
+                <%}%>
+        </div>
+      </div>
+      <div class="row justify-content-lg-left">
+            <div class="col col-lg-6 col-sm-7">
+                    <% for(var i=0;i<3;i++) {%>
+                            <button class="table-icon"><i class="far fa-square fa-5x" style="color:#8EB640;"></i></button>
+                    <%}%>
+            </div>
+            <div class="col col-lg-6 col-sm-5">
+                    <% for(var i=0;i<3;i++) {%>
+                            <button class="table-icon"><i class="far fa-square fa-5x" style="color:#8EB640;"></i></button>
+                    <%}%>
+            </div>
+          </div>
+          <div class="row justify-content-lg-left">
+                <div class="col col-lg-6 col-sm-7">
+                        <% for(var i=0;i<3;i++) {%>
+                                <button class="table-icon"><i class="far fa-square fa-5x" style="color:#8EB640;"></i></button>
+                        <%}%>
+                </div>
+                <div class="col col-lg-6 col-sm-5">
+                        <% for(var i=0;i<3;i++) {%>
+                                <button class="table-icon"><i class="far fa-square fa-5x" style="color:#8EB640;"></i></button>
+                        <%}%>
+                </div>
+            </div>
+            <div class="row justify-content-md-left">
+                <div class="col col-lg-6 col-sm-7">
+                        <% for(var i=0;i<5;i++) {%>
+                                <button class="table-icon"><i class="far fa-square fa-5x" style="color:#8EB640;"></i></button>
+                        <%}%>
+                </div>
+                <div class="col col-lg-6 col-sm-5">
+                        <% for(var i=0;i<3;i++) {%>
+                                <button class="table-icon"><i class="far fa-square fa-5x" style="color:#8EB640;"></i></button>
+                        <%}%>
+                </div>
+        </div>
+    </div>   
+    <button type="submit" class="btn btn-custom btn-lg">Request Cancellation</button>
+    <button type="submit" class="btn btn-custom btn-lg">Confirm Booking</button>
+</div>
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+<script>
+    $('.table-icon').click(function(){
+
+        var tableID = Number($(this).attr('id'));
+        $(this).find('i').toggleClass('fas far');
+        
+    });
+</script>
+<%- include('partials/footer.ejs'); -%>
