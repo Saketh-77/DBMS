@@ -39,6 +39,10 @@ app.get('/',(req, res)=>{
   res.render("landing",{});
 });
 
+app.get('/admin',(req, res)=>{
+  res.render('admin');
+});
+
 app.get("/menuPage",(req, res)=>{
   res.render("menu");
 });

@@ -80,7 +80,7 @@
                         <span class="add-btn"><i class="far fa-plus-square"></i></span>
                         <form action="/additem" method="post">
                             <input id="custom-meal" type="text" name="item" value="Custom,100" hidden>
-                            <input id = "quantity" name="numberOfItems" type="number" value=0 hidden/>
+                            <input id = "quantity" name="numberOfItems" type="text" value=0 hidden/>
                             <button type="submit" class="btn btn-custom btn-lg">Add to cart</button>
                         </form>
                     </div>
@@ -171,9 +171,10 @@
 <script type="text/javascript" src="js/main.js"></script>
 <script>
     $(".add-btn").on("click",function(){
+        var value =0;
         var $showUser = $(this).prev();
-        var $quantity = $(this).next().find("input#qunatity");
-        var value = parseInt($showUser.attr('value'));
+        var $quantity = $(this).next().find("input#quantity");
+        value = parseInt($showUser.attr('value'));
         value += 1;
         $quantity.attr('value',String(value));
         $showUser.attr('value',String(value));
